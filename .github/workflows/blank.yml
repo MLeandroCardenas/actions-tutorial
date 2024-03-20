@@ -33,4 +33,6 @@ jobs:
       - name: "view events"
         run: |
           echo "Event: ${{ toJson(github.event) }}"
+          echo "Github Actor: $GITHUB_ACTOR" 
+          echo "Github Repository: $GITHUB_REPOSITORY" 
 
