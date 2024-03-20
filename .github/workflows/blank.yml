@@ -25,8 +25,12 @@ jobs:
       - name: "display message"
         run: echo "Hello World"
       - name: "view enviroments variables"
-        if: ${{ env.platform == 'azure' }}
+        if: ${{ env.platform == 'aws' }}
         run: |
           echo "this is platform: ${{ env.platform }}"
           echo "this is region: ${{ env.region }}"
           echo "this is account: ${{ env.account }}"
+      - name: "view events"
+        run: |
+          echo "Event: ${{ toJson(github.event) }}"
+
