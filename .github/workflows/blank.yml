@@ -8,13 +8,15 @@ on:
   push:
     branches: [ "master" ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
   build:
+    # enviroments variables
+    env:
+      platform: aws
+      region: us-east-1
+      account: 12345678910
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -22,3 +24,8 @@ jobs:
     steps:
       - name: "display message"
         run: echo "Hello World"
+      - name: "view enviroments variables"
+        run: |
+          echo "this is platform: ${{ env.platform }}"
+          echo "this is region: ${{ env.region }}"
+          echo "this is account: ${{ env.account }}"
